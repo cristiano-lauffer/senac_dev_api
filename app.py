@@ -1,5 +1,5 @@
 from flask import Flask, request
-from flasgger import Swagger, swag_from
+# from flasgger import Swagger, swag_from
 from controllers.carro_controller import CarroController
 
 app = Flask(__name__)

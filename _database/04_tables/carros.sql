@@ -8,7 +8,7 @@ create table `dev_api`.`carros` (
 	`nom_marca` VARCHAR(500) not null ,
 	`num_ano_fabricacao` int not null ,
 	`num_ano_modelo` int not null ,
-	`nom_cor` int not null ,
+	`nom_cor` VARCHAR(500) not null ,
 	`nom_combustivel` VARCHAR(500) not null ,
 	`num_placa` VARCHAR(500) not null ,
 	`dat_criacao` DATETIME not null DEFAULT CURRENT_TIMESTAMP,

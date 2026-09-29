@@ -6,10 +6,10 @@ class CarroModel:
         cursor = conn.cursor(dictionary=True)
         cursor.execute("""
         SELECT
-            oid_carro, nom_carro, nom_marca, num_ano_fabricacao, num_ano_modelo, nom_cor, nom_combustivel, num_placa, dat_criacao, dat_alteracao
-        FROM carro
+            oid_carro, nom_carro, nom_marca, num_ano_fabricacao, num_ano_modelo, nom_cor, nom_combustivel, num_placa
+        FROM carros
         """)
-        result = cursor.fetchone()
+        result = cursor.fetchall()
         cursor.close()
         conn.close()
         return result
@@ -21,7 +21,7 @@ class CarroModel:
         cursor.execute("""
         SELECT
             oid_carro, nom_carro, nom_marca, num_ano_fabricacao, num_ano_modelo, nom_cor, nom_combustivel, num_placa, dat_criacao, dat_alteracao
-        FROM carro
+        FROM carros
         WHERE
             oid_carro = %s""", (carro_id,))
         result = cursor.fetchone()
