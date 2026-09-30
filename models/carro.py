@@ -31,42 +31,70 @@ class CarroModel:
 
     @staticmethod
     def insert(dados):
-        # conn = get_connection()
-        # cursor = conn.cursor()
-        # sql = "INSERT INTO series (titulo, ano, categoria, sinopse, faixa_etaria, pais, idioma) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-        # valores = (dados.get('titulo'), dados.get('ano'), dados.get('categoria'), dados.get('sinopse'), dados.get('faixa_etaria'), dados.get('pais'), dados.get('idioma'))
-        # cursor.execute(sql, valores)
-        # conn.commit()
-        # last_id = cursor.lastrowid
-        # cursor.close()
-        # conn.close()
-        raise Exception('(precisa ser implementado)')
+        conn = get_connection()
+        cursor = conn.cursor()
+        sql = "INSERT INTO carros (nom_carro, nom_marca, num_ano_fabricacao, num_ano_modelo, nom_cor, nom_combustivel, num_placa) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        valores = (
+            dados.get('nom_carro'),
+            dados.get('nom_marca'),
+            dados.get('num_ano_fabricacao'),
+            dados.get('num_ano_modelo'),
+            dados.get('nom_cor'),
+            dados.get('nom_combustivel'),
+            dados.get('num_placa')
+        )
+        cursor.execute(sql, valores)
+        conn.commit()
+        last_id = cursor.lastrowid
+        cursor.close()
+        conn.close()
+        # raise Exception('(precisa ser implementado)')
         return last_id
 
     @staticmethod
-    def update(serie_id, dados):
-        # conn = get_connection()
-        # cursor = conn.cursor()
-        # sql = "UPDATE series set titulo=%s, ano=%s, categoria=%s, sinopse=%s, faixa_etaria=%s, pais=%s, idioma=%s WHERE id=%s"
-        # valores = (dados.get('titulo'), dados.get('ano'), dados.get('categoria'), dados.get('sinopse'), dados.get('faixa_etaria'), dados.get('pais'), dados.get('idioma'), serie_id)
-        # cursor.execute(sql, valores)
-        # conn.commit()
-        # rowcount = cursor.rowcount
-        # cursor.close()
-        # conn.close()
-        raise Exception('(precisa ser implementado)')
+    def update(carro_id, dados):
+        conn = get_connection()
+        cursor = conn.cursor()
+        sql = """
+        UPDATE carros SET
+            nom_carro=%s,
+            nom_marca=%s,
+            num_ano_fabricacao=%s,
+            num_ano_modelo=%s,
+            nom_cor=%s,
+            nom_combustivel=%s,
+            num_placa=%s,
+            dat_alteracao=CURRENT_TIMESTAMP()
+        WHERE
+            oid_carro=%s
+        """
+        valores = (
+            dados.get('nom_carro'),
+            dados.get('nom_marca'),
+            dados.get('num_ano_fabricacao'),
+            dados.get('num_ano_modelo'),
+            dados.get('nom_cor'),
+            dados.get('nom_combustivel'),
+            dados.get('num_placa'),
+            carro_id)
+        cursor.execute(sql, valores)
+        conn.commit()
+        rowcount = cursor.rowcount
+        cursor.close()
+        conn.close()
+        # raise Exception('(precisa ser implementado)')
         return rowcount > 0
 
     @staticmethod
-    def delete(serie_id):
-        # conn = get_connection()
-        # cursor = conn.cursor()
-        # sql = "DELETE FROM series WHERE id = %s"
-        # valores = (serie_id,)
-        # cursor.execute(sql, valores)
-        # conn.commit()
-        # rowcount = cursor.rowcount
-        # cursor.close()
-        # conn.close()
-        raise Exception('(precisa ser implementado)')
+    def delete(carro_id):
+        conn = get_connection()
+        cursor = conn.cursor()
+        sql = "DELETE FROM carros WHERE oid_carro = %s"
+        valores = (carro_id,)
+        cursor.execute(sql, valores)
+        conn.commit()
+        rowcount = cursor.rowcount
+        cursor.close()
+        conn.close()
+        # raise Exception('(precisa ser implementado)')
         return rowcount > 0

@@ -17,18 +17,18 @@ class CarroController:
     @staticmethod
     def cadastrar(dados):
         novo_id = CarroModel.insert(dados)
-        return jsonify({"mensagem": "Carro criada com sucesso", "id": novo_id}), 201
+        return jsonify({"mensagem": "Carro criado com sucesso", "id": novo_id}), 201
 
     @staticmethod
     def atualizar(carro_id, dados):
         sucesso = CarroModel.update(carro_id, dados)
         if sucesso:
-            return jsonify({"mensagem": "Carro atualizada com sucesso"})
+            return jsonify({"mensagem": "Carro atualizado com sucesso"})
         return jsonify({"erro": "Carro não encontrado", "código": "404"}), 404
 
     @staticmethod
     def excluir(carro_id):
         sucesso = CarroModel.delete(carro_id)
         if sucesso:
-            return jsonify({"mensagem": "Carro excluída com sucesso"})
+            return jsonify({"mensagem": "Carro excluído com sucesso"})
         return jsonify({"erro": "Carro não encontrado", "código": "404"}), 404
