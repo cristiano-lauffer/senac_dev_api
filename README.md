@@ -4,7 +4,7 @@ Projeto da cadeira Desenvolvimento de Serviços e APIs (ADS3N26-2)
 # Instalação e execução em desenvolvimento
 
 ## Database (MySQL)
-Executar scrpts, em ordem, da pasta [_database](./_database).
+Executar scripts, em ordem, da pasta [_database](./_database).
 
 ## Criação do ambiente virtual (Windows)
 Para execução em desenvolvimento, criar ambimente "venv enviroment" no Windows, conforme abaixo:
