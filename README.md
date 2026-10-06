@@ -29,6 +29,11 @@ Ainda na mesma janela aberta, para rodar a aplicação:
 python app.py
 ```
 
+Se sair da janela, rodar novamente o comando abaixo, depois, o acima para subir a aplicação:
+
+```powershell
+.\venv\Scripts\Activate.ps1
+```
 ## Consultando a api
 Para rodar utilizando Swagger no navegador:
 
