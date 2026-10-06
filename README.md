@@ -32,12 +32,8 @@ python app.py
 ## Consultando a api
 Para rodar utilizando Swagger no navegador:
 
-```http
-http://localhost:5000/carros/swagger
-```
+[http://localhost:5000/carros/swagger](http://localhost:5000/carros/swagger)
 
 Para rodar sem Swagger no navegador:
 
-```http
-http://localhost:5000/carros/
-```
+[http://localhost:5000/carros](http://localhost:5000/carros)
